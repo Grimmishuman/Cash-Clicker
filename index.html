@@ -40,6 +40,7 @@
     <button onclick="buyUpgrade(2)">Upgrade 2 (cost: 50 Cash)</button>
     <button onclick="buyUpgrade(3)">Upgrade 3 (cost: 100 Cash)</button>
     <button onclick="buyUpgrade(4)">Upgrade 4 (cost: 500 Cash)</button>
+    <button onclick="buyUpgrade(5)">Upgrade 5 (cost: 1000 Cash)</button>
 </div>
 
 <script>
@@ -82,6 +83,16 @@
             if (totalMoney >= cost) {
                 totalMoney -= cost;
                 clickValue += 25
+            } else {
+                alert("Not enough money!");
+            }
+
+
+        } else if (upgrade === 5) {
+            cost = 1000;
+            if (totalMoney >= cost) {
+                totalMoney -= cost;
+                clickValue += 50
             } else {
                 alert("Not enough money!");
             }
