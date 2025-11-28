@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Clicker Game</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #money-bag {
+            font-size: 100px;
+            cursor: pointer;
+        }
+        #score {
+            font-size: 30px;
+            margin: 20px;
+        }
+        #upgrades {
+            margin-top: 30px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Cash Clicker Game!</h1>
+<div id="money-bag">💰</div>
+<div id="score">Total Cash: <span id="total-money">0</span></div>
+
+<div id="upgrades">
+    <button onclick="buyUpgrade(1)">Upgrade 1 (cost: 10 Cash)</button>
+    <button onclick="buyUpgrade(2)">Upgrade 2 (cost: 50 Cash)</button>
+    <button onclick="buyUpgrade(3)">Upgrade 3 (cost: 100 Cash)</button>
+    <button onclick="buyUpgrade(4)">Upgrade 4 (cost: 500 Cash)</button>
+</div>
+
+<script>
+    let totalMoney = 0;
+    let clickValue = 1;
+
+    document.getElementById('money-bag').onclick = function() {
+        totalMoney += clickValue;
+        document.getElementById('total-money').innerText = totalMoney;
+    };
+
+    function buyUpgrade(upgrade) {
+        let cost;
+        if (upgrade === 1) {
+            cost = 10;
+            if (totalMoney >= cost) {
+                totalMoney -= cost;
+                clickValue += 1;
+            } else {
+                alert("Not enough money!");
+            }
+        } else if (upgrade === 2) {
+            cost = 50;
+            if (totalMoney >= cost) {
+                totalMoney -= cost;
+                clickValue += 5;
+            } else {
+                alert("Not enough money!");
+            }
+        } else if (upgrade === 3) {
+            cost = 100;
+            if (totalMoney >= cost) {
+                totalMoney -= cost;
+                clickValue += 10;
+            } else {
+                alert("Not enough money!");
+            }
+        } else if (upgrade === 4) {
+            cost = 500;
+            if (totalMoney >= cost) {
+                totalMoney -= cost;
+                clickValue += 25
+            } else {
+                alert("Not enough money!");
+            }
+        }
+        document.getElementById('total-money').innerText = totalMoney;
+    }
+</script>
+
+</body>
+</html>
